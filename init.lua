@@ -38,6 +38,14 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  -- Get parentesis matching and stuff
+  'windwp/nvim-autopairs',
+
+  -- Autosave thing
+  'pocco81/auto-save.nvim',
+
+  -- Gotta have a filetree thing
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -553,4 +561,29 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
       },
     })
   end,
+})
+
+
+local npairs = require("nvim-autopairs")
+local Rule = require('nvim-autopairs.rule')
+
+npairs.setup({
+  check_ts = true,
+  ts_config = {
+    lua = { 'string' }, -- it will not add a pair on that treesitter node
+    javascript = { 'template_string' },
+    java = false,       -- don't check treesitter on java
+  },
+  disable_filetype = { "TelescopePrompt" },
+  fast_wrap = {
+    map = '<M-e>',
+    chars = { '{', '[', '(', '"', "'" },
+    pattern = [=[[%'%"%>%]%)%}%,]]=],
+    end_key = '$',
+    keys = 'qwertyuiopzxcvbnmasdfghjkl',
+    check_comma = true,
+    manual_position = true,
+    highlight = 'Search',
+    highlight_grey = 'Comment'
+  },
 })
