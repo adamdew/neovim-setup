@@ -3,7 +3,7 @@ local nmap = function(keys, func, desc)
     desc = 'LSP: ' .. desc
   end
 
-  vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+  vim.keymap.set('n', keys, func, { desc = desc })
 end
 
 -- [[ Basic Keymaps ]]
@@ -15,21 +15,22 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- Thanks primeagen, moving higlighted sections
+-- Moving highlighted sections easily
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- Joining 2 lines
 vim.keymap.set("n", "J", "mzJ`z")
+
+--Centered half page up and down
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever, thanks primeagen
-vim.keymap.set("x", "<leader>p", [["_dP]])
-
 -- next greatest remap ever : asbjornHaland
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = 'Yank to system clipboard' })
+vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = 'Paste from system clipboard' })
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "<C-c>", "<Esc>")
@@ -72,10 +73,6 @@ nmap('<leader>wl', function()
 end, '[W]orkspace [L]ist Folders')
 
 --Git stuff
-vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
-  { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
-vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
-vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
 vim.keymap.set('n', '<leader>o', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ space ] Find existing buffers' })
 
