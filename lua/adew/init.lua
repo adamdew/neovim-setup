@@ -43,7 +43,6 @@ require('lazy').setup({
   -- Autosave thing
   'pocco81/auto-save.nvim',
   'ThePrimeagen/harpoon',
-
   -- Gotta have a filetree thing
   {
     "nvim-neo-tree/neo-tree.nvim",
