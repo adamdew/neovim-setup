@@ -4,7 +4,7 @@ require('adew.remaps')
 require('adew.treesitter-config')
 require('adew.lsp-config')
 
--- Highlight on yank 
+-- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -13,8 +13,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
 require("catppuccin").setup({
-    transparent_background = true, -- disables setting the background color.
+  transparent_background = true, -- disables setting the background color.
+  term_colors = true,
+  integrations = {
+    cmp = true,
+    gitsigns = true,
+    nvimtree = true,
+    treesitter = true,
+    notify = false,
+    mini = {
+      enabled = true,
+      indentscope_color = "",
+    },
+  },
 })
 
 -- setup must be called before loading

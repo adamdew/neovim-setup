@@ -123,5 +123,27 @@ require('lazy').setup({
   -- Mason for easy lsp setup
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
+  -- Best theme ever
+  { "catppuccin/nvim",                  name = "catppuccin", priority = 1000 },
+  -- Mysql thing
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
+  {
+    'tpope/vim-dotenv',
+  }
 }, {})
