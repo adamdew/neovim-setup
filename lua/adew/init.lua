@@ -13,9 +13,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+require("catppuccin").setup({
+    transparent_background = true, -- disables setting the background color.
+})
 
---Theme Config
-require('onedark').setup {
-  style = 'warmer',
-  transparent = true
-}
+-- setup must be called before loading
+vim.cmd.colorscheme "catppuccin"

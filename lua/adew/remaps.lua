@@ -96,7 +96,6 @@ nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocumen
 
 nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-require('onedark').load()
 
 -- Harpoon commands
 vim.keymap.set('n', '<leader>hm', require('harpoon.mark').add_file, { desc = '[H]arpoon [M]ark' })
