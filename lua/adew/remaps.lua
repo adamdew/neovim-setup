@@ -28,7 +28,7 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- next greatest remap ever : asbjornHaland
+-- Copy paste from system clipboard
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = 'Yank to system clipboard' })
 vim.keymap.set({ "n", "v" }, "<leader>p", [["+p]], { desc = 'Paste from system clipboard' })
 
