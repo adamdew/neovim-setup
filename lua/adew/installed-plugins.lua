@@ -120,9 +120,6 @@ require('lazy').setup({
       { 'L3MON4D3/LuaSnip' }
     },
   },
-  -- Mason for easy lsp setup
-  { 'williamboman/mason.nvim' },
-  { 'williamboman/mason-lspconfig.nvim' },
   -- Best theme ever
   { "catppuccin/nvim",                  name = "catppuccin", priority = 1000 },
   -- Mysql thing

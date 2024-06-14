@@ -2,8 +2,6 @@ local lsp_zero = require('lsp-zero')
 
 lsp_zero.on_attach(function(client, bufnr)
 
-  -- Setup default LSPs
-  lsp_zero.setup_servers({ 'lua_ls', 'intelephense', 'html', 'cssls', 'emmet_language_server', 'tailwindcss' })
 
   -- see :help lsp-zero-keybindings
   -- to learn the available actions
@@ -22,12 +20,11 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<leader>vs", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require('mason').setup({})
-require('mason-lspconfig').setup({
-  handlers = {
-    lsp_zero.default_setup,
-  },
-})
+-- Setup default LSPs
+--lsp_zero.setup_servers({ 'lua_ls', 'intelephense', 'html', 'cssls', 'emmet_language_server', 'tailwindcss' })
+require'lspconfig'.intelephense.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.tsserver.setup{}
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -40,9 +37,8 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<Enter>'] = cmp.mapping.confirm({ select = true }),
   }),
 })
