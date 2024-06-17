@@ -3,6 +3,7 @@ require('adew.installed-plugins')
 require('adew.remaps')
 require('adew.treesitter-config')
 require('adew.lsp-config')
+require('adew.lualine-config')
 
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })

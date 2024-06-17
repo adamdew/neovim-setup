@@ -23,3 +23,6 @@ vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
+vim.api.nvim_set_hl(0, 'LineNrAbove', { fg='#51B3EC', bold=true })
+vim.api.nvim_set_hl(0, 'LineNr', { fg='white', bold=true })
+vim.api.nvim_set_hl(0, 'LineNrBelow', { fg='#FB508F', bold=true })

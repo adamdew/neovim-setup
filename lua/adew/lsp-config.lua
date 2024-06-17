@@ -22,10 +22,10 @@ end)
 
 -- Setup default LSPs
 --lsp_zero.setup_servers({ 'lua_ls', 'intelephense', 'html', 'cssls', 'emmet_language_server', 'tailwindcss' })
+
 require'lspconfig'.intelephense.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.tsserver.setup{}
-
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 

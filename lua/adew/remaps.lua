@@ -38,7 +38,7 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 --Unbind Q, tmux sessionizer, lsp format
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
+vim.keymap.set("n", "<leader>l", vim.lsp.buf.format)
 
 vim.keymap.set("n", "<leader>t", "<Cmd>Neotree toggle<CR>")
 
